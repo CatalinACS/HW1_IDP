@@ -1,0 +1,10 @@
+apiVersion: 1
+
+datasources:
+- name: Influx_SPRC_2023
+  type: influxdb
+  access: proxy
+  database: IoT_Devices
+  url: http://sprc3_influx_db:8086
+  isDefault: true
+  editable: true

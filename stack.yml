@@ -1,0 +1,69 @@
+version: '3.7'
+
+services:
+
+  mosquitto_mqtt:
+    image: eclipse-mosquitto:latest
+    ports:
+      - 1883:1883
+    volumes:
+      - ./mosquitto_mqtt_vol:/mosquitto/log
+      - ./mosquitto_mqtt_vol/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto_mqtt_vol/passwd.txt:/mosquitto/config/passwd.txt
+      - ./mosquitto_mqtt_vol/acl.conf:/mosquitto/config/acl.conf
+      - ./mosquitto_mqtt_vol:/mosquitto/data
+    networks:
+      - broker_adaptor_network
+
+  influx_db:
+    image: influxdb:1.8
+    ports:
+      - 8086:8086
+    volumes:
+      - ./database/influx_db:/var/lib/influxdb
+      - ./database:/etc/influxdb/config.yml
+      - ./database/init_influx_db.sh:/docker-entrypoint-initdb.d/init_influx_db.sh
+    networks:
+      - adaptor_influx_network
+      - influx_grafana_network
+
+  grafana:
+    image: 127.0.0.1:5000/grafana
+    depends_on:
+      - influx_db
+    user: "$UID:$GID"
+    ports:
+      - 80:3000
+    volumes:
+      - ./grafana_db/data:/var/lib/grafana
+      - ./grafana_db:/etc/grafana/config.ini
+    env_file:
+      - ./grafana_db/grafana.env
+    networks:
+      - influx_grafana_network
+
+  adapter:
+    image: 127.0.0.1:5000/adapter_mqtt
+    depends_on:
+      - influx_db
+      - mosquitto_mqtt
+    volumes:
+    - /etc/timezone:/etc/timezone:ro
+    - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - ./adapter/adapter_hw3.env
+    networks:
+      - adaptor_influx_network
+      - broker_adaptor_network
+
+networks:
+  broker_adaptor_network:
+    name: broker_adaptor_network
+  adaptor_influx_network:
+    name: adaptor_influx_network
+  influx_grafana_network:
+    name: influx_grafana_network
+
+volumes:
+  influx_db:
+    name: influx_db
