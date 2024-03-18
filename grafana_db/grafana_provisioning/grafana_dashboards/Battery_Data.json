@@ -23,7 +23,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Influx_SPRC_2023",
+            "datasource": "Influx_IDP_2023",
             "description": "",
             "fieldConfig": {
                 "defaults": {
@@ -173,7 +173,7 @@
             }
         },
         {
-            "datasource": "Influx_SPRC_2023",
+            "datasource": "Influx_IDP_2023",
             "description": "",
             "fieldConfig": {
                 "defaults": {

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker stack rm sprc3
+docker stack rm idp3
 
 docker service rm stack_services
 

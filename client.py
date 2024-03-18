@@ -9,7 +9,7 @@ import paho.mqtt.client as mqtt
 
 def _create_connection():
     client = mqtt.Client()
-    #  client.username_pw_set(username="writer", password="writer_sprc")
+    #  client.username_pw_set(username="writer", password="writer_idp")
     client.connect("localhost")
     client.loop_start()
 
