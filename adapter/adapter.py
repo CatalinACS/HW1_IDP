@@ -56,7 +56,7 @@ influx_database = InfluxDBClient(
     database=os.environ.get("DATABASE_NAME_INFLUX"),
     timeout=1000,
 )
-mqtt_client = mqtt.Client(userdata=influx_database)
+mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, userdata=influx_database)
 
 logger = log.getLogger()
 
@@ -65,7 +65,7 @@ adapter = Adapter_MQTT(
 )
 
 
-def mqtt_connect(client, userdata, flags, rc):
+def mqtt_connect(client, userdata, flags, rc, props=None):
     client.subscribe("#")
     if adapter.debug_data == "true":
         adapter.logger.info("Adapter connected to MQTT Broker with code " + str(rc))

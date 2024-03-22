@@ -7,10 +7,16 @@ docker service create --name stack_services -p published=5000,target=5000 regist
 sudo chown -R $USER ./grafana_db
 sudo chmod -R 777 ./grafana_db
 
-docker stack deploy -c stack.yml idp3
+sudo chown -R $USER ./mosquitto_mqtt_vol
+sudo chmod -R 777 ./mosquitto_mqtt_vol
+
+docker stack deploy -c stack.yml idp_project
 
 docker build grafana_db/ --tag 127.0.0.1:5000/grafana
 docker push 127.0.0.1:5000/grafana
 
 docker build adapter/ --tag 127.0.0.1:5000/adapter_mqtt
 docker push 127.0.0.1:5000/adapter_mqtt
+
+docker build api_server/ --tag 127.0.0.1:5000/api_server_img
+docker push 127.0.0.1:5000/api_server_img

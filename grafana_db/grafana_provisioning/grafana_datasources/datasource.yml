@@ -5,6 +5,6 @@ datasources:
   type: influxdb
   access: proxy
   database: IoT_Devices
-  url: http://idp3_influx_db:8086
+  url: http://idp_project_influx_db:8086
   isDefault: true
   editable: true
