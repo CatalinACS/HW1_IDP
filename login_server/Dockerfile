@@ -6,8 +6,8 @@ RUN pip3 install --upgrade pip
 RUN pip install -r /tmp/requirements.txt
 RUN pip install mysqlclient
 
-COPY api_server.py /api_server/
-WORKDIR /api_server
+COPY login_server.py /login_server/
+WORKDIR /login_server
 
 ENTRYPOINT ["python3", "-u"]
-CMD ["api_server.py"]
+CMD ["login_server.py"]

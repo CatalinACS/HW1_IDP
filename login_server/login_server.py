@@ -8,10 +8,9 @@ from os import getenv
 server = None
 config = None
 
-# Clasa care modeleaza server-ul
+# Clasa care modeleaza server-ul de login
 
-
-class API_SERVER:
+class LOGIN_SERVER:
     def __init__(
         self,
         app: Flask,
@@ -70,14 +69,13 @@ auth = API_AUTH(
     [],
 )
 
-server = API_SERVER(
+server = LOGIN_SERVER(
     app,
     [auth_logic],
     config,
 )
 
 # Functiile care modeleaza ruta
-
 
 @auth_logic.route("/", methods=[" "])
 def process_login_logic():

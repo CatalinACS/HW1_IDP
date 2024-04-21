@@ -42,8 +42,8 @@ services:
     env_file:
       - my_sql_environment_idp.env
 
-  api_server:
-    image: 127.0.0.1:5000/api_server_img
+  login_server:
+    image: 127.0.0.1:5000/login_server_img
     depends_on:
       - mysql-db
     environment:

@@ -18,5 +18,5 @@ docker push 127.0.0.1:5000/grafana
 docker build adapter/ --tag 127.0.0.1:5000/adapter_mqtt
 docker push 127.0.0.1:5000/adapter_mqtt
 
-docker build api_server/ --tag 127.0.0.1:5000/api_server_img
-docker push 127.0.0.1:5000/api_server_img
+docker build login_server/ --tag 127.0.0.1:5000/login_server_img
+docker push 127.0.0.1:5000/login_server_img

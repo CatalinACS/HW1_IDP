@@ -6,7 +6,7 @@ docker service rm stack_services
 
 docker swarm leave --force
 
-docker rmi 127.0.0.1:5000/grafana 127.0.0.1:5000/adapter_mqtt 127.0.0.1:5000/api_server_img -f
+docker rmi 127.0.0.1:5000/grafana 127.0.0.1:5000/adapter_mqtt 127.0.0.1:5000/login_server_img -f
 
 docker image prune -f
 
