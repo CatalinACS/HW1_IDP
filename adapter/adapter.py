@@ -23,7 +23,6 @@ class Adapter_MQTT:
 
     def start_adapter(self):
         reach_serv = False
-
         self.mqtt_client.on_connect = mqtt_connect
         self.mqtt_client.on_message = mqtt_message
 

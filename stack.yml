@@ -27,47 +27,6 @@ services:
       - adaptor_influx_network
       - influx_grafana_network
 
-  mysql-db:
-    image: mysql:5.7
-    ports:
-      - "32000:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./mysql_database/mysql-db:/var/lib/mysql
-      - ./mysql_database/init_mysql.sql:/docker-entrypoint-initdb.d/init_mysql.sql
-    networks:
-      - interface_network
-      - app_network
-    env_file:
-      - my_sql_environment_idp.env
-
-  login_server:
-    image: 127.0.0.1:5000/login_server_img
-    depends_on:
-      - mysql-db
-    environment:
-      MYSQL_PORT: 3306
-    ports:
-      - 9090:5000
-    networks:
-      - app_network
-    env_file:
-      - my_sql_environment_idp.env
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      PMA_HOST: mysql-db
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
-    ports:
-      - 8081:80
-    depends_on:
-      - mysql-db
-    networks:
-      - interface_network
-
   grafana:
     image: 127.0.0.1:5000/grafana
     depends_on:
@@ -104,10 +63,6 @@ networks:
     name: adaptor_influx_network
   influx_grafana_network:
     name: influx_grafana_network
-  interface_network:
-    name: interface_network
-  app_network:
-    name: app_network
   
 
 volumes:

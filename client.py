@@ -9,7 +9,7 @@ import paho.mqtt.client as mqtt
 
 def _create_connection():
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
-    #  client.username_pw_set(username="writer", password="writer_idp")
+    client.username_pw_set(username="UPB_IoT_client", password="client")
     client.connect("localhost")
     client.loop_start()
 
