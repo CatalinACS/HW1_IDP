@@ -1,0 +1,20 @@
+_format_version: "2.1"
+
+services:
+  - name: db-grafana
+    url: http://idp_project_grafana:80
+    routes:
+      - name: grafana-service
+        paths: 
+          - /grafana
+
+consumers:
+  - username: client
+
+plugins:
+  - name: key-auth
+    service: db-grafana
+
+keyauth_credentials:
+  - consumer: client
+    key: IDP_project

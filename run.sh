@@ -10,6 +10,9 @@ sudo chmod -R 777 ./grafana_db
 sudo chown -R $USER ./mosquitto_mqtt_vol
 sudo chmod 777 ./mosquitto_mqtt_vol/mosquitto.conf
 
+sudo chown -R $USER ./portainer_data
+sudo chmod -R 777 ./portainer_data
+
 docker stack deploy -c stack.yml idp_project
 
 docker build grafana_db/ --tag 127.0.0.1:5000/grafana
