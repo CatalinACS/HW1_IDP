@@ -1,2 +1,0 @@
-adapter_UPB:$7$101$E0MZtr+xOUfXfUWN$CPKk+c0HFSoatt1z/ajrMo7EXlLaL/DqcXCqPd8GdARFEZnDklQs0u6dKlgLSfqOamB3dPXvJ04FPdgcErT3Og==
-UPB_IoT_client:$7$101$b+OAwAdZje6UuCyz$wvQ8gKPaJrtvJdXjt6VeQdE6IM+VKR1CICCVK+Um9hmwXfLJi/NE1WaYCwpX7bqHHVKQdmY4tbomJKn6hQRIrQ==
