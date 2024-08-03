@@ -1,3 +1,7 @@
-# IDP Project
+# IDP - Homework1
 
-Project moved to https://gitlab.com/idp_project2
+Homework proposed by the Instruments for Software Development course staff.
+
+Project moved to https://gitlab.com/idp_project2. There, you'll find all the details.
+
+POLYTECHNIC University of Bucharest
