@@ -1,5 +1,7 @@
 # HW1_IDP
 
+Implementation [here](https://gitlab.com/idp_project2)
+
 For this project, I designed a platform for collecting, storing, and visualizing numerical data coming from a large number of Internet of Things devices. For its implementation, we will adopt a simplified (but efficient) architecture inspired by the operation mode of the most well-known public cloud services of this type. Typically, such a solution comprises the following components.
 
 - Devices with sensors connected to the Internet
@@ -108,5 +110,3 @@ Thus:
 - The Influx database will communicate only with the adapter and the visualization interface (Grafana)
 - The adapter will communicate only with the MQTT broker and the Influx database
 - The visualization interface (Grafana) will communicate only with the Influx database
-
-Implementation [here](https://gitlab.com/idp_project2)
